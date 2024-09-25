@@ -1,3 +1,9 @@
+# name                 : Print all FSMs
+# script-type          : Python
+# description          : Prints to console all FSMs of the selected SystemEngineering element
+# popup                : enableFor(org.polarsys.capella.core.data.capellamodeller.SystemEngineering)
+#
+
 # include needed for the Capella modeller API
 include('workspace://Python4Capella/simplified_api/capella.py')
 if False:
@@ -12,12 +18,21 @@ include('workspace://Capella-TASTE-bridges/verification/utils.py')
 if False:
     from verification.utils import *
 
-# path relative to workspace
-aird_path = '/cloudview-obc-model/obc-model.aird'
-
-model = CapellaModel()
-model.open(aird_path)
-se = model.get_system_engineering()
+try:
+    # if called from UI, start from the selected SystemEngineering element in the open project
+    specific_cls = EObject.get_class(CapellaPlatform.getFirstSelectedElement())
+    se = specific_cls(CapellaPlatform.getFirstSelectedElement())
+except:
+    # if called from CLI:
+    if len(argv) != 1:
+        # load the IFE model
+        aird_path = '/In-Flight Entertainment System/In-Flight Entertainment System.aird'
+    else:
+        # load the Capella model from the first argument of the script
+        aird_path = argv[0]
+    model = CapellaModel()
+    model.open(aird_path)
+    se = model.get_system_engineering()
 
 print('System Analysis level')
 sa = se.get_system_analysis()
