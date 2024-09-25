@@ -47,5 +47,4 @@ except:
     level_fsms = fsm_level.get_all_contents_by_type(StateMachine)
     fsm = [ fsm for fsm in level_fsms if fsm.get_name() == fsm_name_arg ][0]
 
-print(fsm.get_name())
-print_fsm(fsm, leading_tabs=1, verbose=True)
+print(fsm.as_string(verbose=True))

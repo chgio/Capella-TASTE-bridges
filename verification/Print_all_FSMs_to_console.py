@@ -38,22 +38,19 @@ print('System Analysis level')
 sa = se.get_system_analysis()
 sa_fsms = sa.get_all_contents_by_type(StateMachine)
 for fsm in sa_fsms:
-    print('\t' + fsm.get_name())
-    print_fsm(fsm, leading_tabs=2, verbose=True)
+    print(fsm.as_string(leading_tabs=1, verbose=True))
     print()
 
 print('Logical Architecture level')
 la = se.get_logical_architecture()
 la_fsms = la.get_all_contents_by_type(StateMachine)
 for fsm in la_fsms:
-    print('\t' + fsm.get_name())
-    print_fsm(fsm, leading_tabs=2, verbose=False)
+    print(fsm.as_string(leading_tabs=1, verbose=False))
     print()
 
 print('Physical Architecture level')
 pa = se.get_physical_architecture()
 pa_fsms = pa.get_all_contents_by_type(StateMachine)
 for fsm in pa_fsms:
-    print('\t' + fsm.get_name())
-    print_fsm(fsm, leading_tabs=2, verbose=False)
+    print(fsm.as_string(leading_tabs=1, verbose=False))
     print()
