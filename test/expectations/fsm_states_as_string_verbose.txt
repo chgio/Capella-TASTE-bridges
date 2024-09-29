@@ -1,0 +1,33 @@
+states (verbose):
+	Final
+	Start Up
+		*unnamed transition*
+			 ---> Ready
+	Ready
+		*unnamed transition*
+			 ---> Choice
+	Fully Operational
+		*unnamed transition*
+			 ---> Ready
+		*unnamed transition*
+			 -- IFE Operating Profile -> Degraded
+		*unnamed transition*
+			 -- IFE Operating Profile -> Halted
+	Maintenance
+		*unnamed transition*
+			 ---> Ready
+	Software Upgrade
+	Content Management
+	Sustaining
+	Degraded
+		*unnamed transition*
+			 -- IFE Operating Profile -> Halted
+		*unnamed transition*
+			 ---> Final
+		*unnamed transition*
+			 -- IFE Operating Profile -> Fully Operational
+	Halted
+		*unnamed transition*
+			 ---> Final
+		*unnamed transition*
+			 -- IFE Operating Profile -> Fully Operational

@@ -1,0 +1,39 @@
+transitions (verbose):
+	*unnamed transition*
+		Init ---> Choice
+	*unnamed transition*
+		Choice ---> Software Upgrade
+	*unnamed transition*
+		Choice -- Load Digital Media  -> Content Management
+	*unnamed transition*
+		Choice ---> Sustaining
+	*unnamed transition*
+		init ---> Start Up
+	*unnamed transition*
+		Start Up ---> Ready
+	*unnamed transition*
+		Ready ---> Choice
+	*unnamed transition*
+		Choice ---> Fully Operational
+	*unnamed transition*
+		Choice ---> Maintenance
+	*unnamed transition*
+		Maintenance ---> Ready
+	*unnamed transition*
+		Fully Operational ---> Ready
+	*unnamed transition*
+		Choice ---> Final
+	*unnamed transition*
+		Fully Operational -- IFE Operating Profile -> Degraded
+	*unnamed transition*
+		Degraded -- IFE Operating Profile -> Halted
+	*unnamed transition*
+		Degraded ---> Final
+	*unnamed transition*
+		Halted ---> Final
+	*unnamed transition*
+		Degraded -- IFE Operating Profile -> Fully Operational
+	*unnamed transition*
+		Halted -- IFE Operating Profile -> Fully Operational
+	*unnamed transition*
+		Fully Operational -- IFE Operating Profile -> Halted

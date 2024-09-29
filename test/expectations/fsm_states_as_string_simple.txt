@@ -1,0 +1,11 @@
+states:
+	Final
+	Start Up
+	Ready
+	Fully Operational
+	Maintenance
+	Software Upgrade
+	Content Management
+	Sustaining
+	Degraded
+	Halted
