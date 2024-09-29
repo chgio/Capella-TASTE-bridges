@@ -54,4 +54,6 @@ def fsm_as_string(self, leading_tabs=0, verbose=False) -> str:
 
 
 if __name__ == '__main__':
+    StateMachine.states_as_string = fsm_states_as_string
+    StateMachine.transitions_as_string = fsm_transitions_as_string
     StateMachine.as_string = fsm_as_string
