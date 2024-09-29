@@ -1,0 +1,27 @@
+name: Run Tests
+
+on:
+  # runs autonomously upon any push
+  push:
+    branches:
+      - '**'
+  # can be triggered manually
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      # pull docker image
+      - name: Pull docker image
+        run: docker pull chgio/python4capella-docker:latest
+      # run unit tests
+      - name: Run unit tests
+        run: |
+          docker run \
+          -v Capella-TASTE-bridges:/workspace/user/scripts/Capella-TASTE-bridges \
+          -e TEST_EXPECTATIONS_PATH=/workspace/user/scripts/Capella-TASTE-bridges/test/expectations \
+          chgio/python4capella-docker:latest \
+          user/scripts/Capella-TASTE-bridges/test/test_verification_utils.py \
+          sample/models/In-Flight\ Entertainment\ System/In-Flight\ Entertainment\ System.aird
+            
