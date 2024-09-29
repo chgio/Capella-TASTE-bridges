@@ -16,7 +16,7 @@ jobs:
       - name: Pull docker image
         run: docker pull chgio/python4capella-docker:latest
       # debug
-      - run: pwd && ls
+      - run: ls -la
       # run unit tests
       - name: Run unit tests
         run: |
