@@ -19,7 +19,7 @@ jobs:
       - name: Run unit tests
         run: |
           docker run \
-          -v Capella-TASTE-bridges:/workspace/user/scripts/Capella-TASTE-bridges \
+          -v .:/workspace/user/scripts/Capella-TASTE-bridges \
           -e TEST_EXPECTATIONS_PATH=/workspace/user/scripts/Capella-TASTE-bridges/test/expectations \
           chgio/python4capella-docker:latest \
           user/scripts/Capella-TASTE-bridges/test/test_verification_utils.py \
